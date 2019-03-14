@@ -1,13 +1,13 @@
 package hash_Linny;
 
-public interface IHashTable<T> {
+public interface IHashTable<T,M> {
 
-	
-	public int hashFunction(int key);
+	public void insert(T element, M key);
+	public void remove(T element, M key);
 	public boolean isEmpty();
 	public int size();
-	public void insert(T element, int key);
-	public void remove(T element, int key);
-	public T getElement(int key);
+	public ItemLinny<T,M> search(M key);
+	public int getSlot(M key);
+	public boolean contains(M key);
 	
 }
