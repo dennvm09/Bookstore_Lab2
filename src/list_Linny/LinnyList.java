@@ -9,6 +9,7 @@ public class LinnyList<T> implements IList<T> {
 	int counter = 0;
 
 	public LinnyList() {
+		super();
 		counter = 0;
 	}
 
@@ -172,6 +173,9 @@ public class LinnyList<T> implements IList<T> {
 		System.out.println(n.isEmpty());
 		n.linnyDeleteObject(6);
 		System.out.println(n.isEmpty());
+		LinnyList<String> z = new LinnyList<>();
+		z.linnyAdd("hola");
+		System.out.println(z.linnyGet(0));
 	}
 
 	

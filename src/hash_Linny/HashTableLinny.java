@@ -3,7 +3,7 @@ import list_Linny.LinnyList;;
 
 public class HashTableLinny<T, M> implements IHashTable<T,M> {
 
-	public final static int SIZE = 1000;
+	public final static int SIZE = 3000;
 	public int busy;
 	public ItemLinny<T,M>[] table;
 	public M[] keys;
