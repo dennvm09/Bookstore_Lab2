@@ -85,7 +85,7 @@ public class Customer {
 			
 			
 			
-			Collections.sort(listAux,new Comparator<Book>() {
+			Collections.sort(listAux ,new Comparator<Book>() {
 				@Override
 				public int compare(Book o1, Book o2) {
 					return o1.getShelves() - o2.getShelves();

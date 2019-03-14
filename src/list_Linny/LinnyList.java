@@ -1,8 +1,10 @@
 package list_Linny;
 
+import java.awt.Dimension;
+import java.awt.List;
 import java.security.NoSuchProviderException;
 
-public class LinnyList<T> implements IList<T> {
+public class LinnyList<T>  extends List implements IList<T> {
 
 	private LinnyNodo<T> firstNodo;
 	private LinnyNodo<T> lastNodo;
@@ -85,7 +87,7 @@ public class LinnyList<T> implements IList<T> {
 		int number = 1;
 		boolean h = false;
 
-		if (i < size()) {
+		if (i < getTamanio()) {
 			
 			if(number == 0) {
 				firstNodo.getNext().setPrevious(null);
@@ -119,7 +121,7 @@ public class LinnyList<T> implements IList<T> {
 	}
 
 	@Override
-	public int size() {
+	public int getTamanio() {
 		// TODO Auto-generated method stub
 		return counter;
 	}
@@ -138,7 +140,7 @@ public class LinnyList<T> implements IList<T> {
 		int number = 0;
 		boolean h = false;
 
-		if (i < size()) {
+		if (i < getTamanio()) {
 			while (node != null && h == false ) {
 				if (number == i) {
 					element = node.getInfo();
@@ -164,12 +166,12 @@ public class LinnyList<T> implements IList<T> {
 		System.out.println(n.linnyGet(0));
 		System.out.println(n.linnyGet(1));
 		System.out.println(n.linnyGet(2));
-		System.out.println(n.size());
+		System.out.println(n.getTamanio());
 		n.linnyDelete(1);
-		System.out.println(n.size());
+		System.out.println(n.getTamanio());
 		System.out.println(n.linnyGet(1));
 		n.linnyDelete(1);
-		System.out.println(n.size());
+		System.out.println(n.getTamanio());
 		System.out.println(n.isEmpty());
 		n.linnyDeleteObject(6);
 		System.out.println(n.isEmpty());

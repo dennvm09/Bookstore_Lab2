@@ -6,6 +6,7 @@ public interface IList<T> {
 	public void linnyDeleteObject(T element);
 	public void linnyDelete(int i);
 	public boolean isEmpty();
-	public int size();
+	//public int size();
+	int getTamanio();
 
 }

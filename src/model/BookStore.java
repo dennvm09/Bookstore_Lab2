@@ -34,8 +34,8 @@ public class BookStore {
 		
 		while(queue.isEmpty() == false) {
 			Customer user = queue.linnyPeek();
-			int z = user.getListISBN().size();
-			int v = shelves.size();
+			int z = user.getListISBN().getTamanio();
+			int v = shelves.getTamanio();
 			
 			for (int i = 0; i < v; i++) {
 				if(shelves.linnyGet(i) != null) {
