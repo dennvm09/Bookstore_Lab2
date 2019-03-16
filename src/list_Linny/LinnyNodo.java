@@ -4,6 +4,7 @@ public class LinnyNodo<T> {
 	
 	private LinnyNodo<T> next;
 	private LinnyNodo<T> previous;
+	private int priority;
 	
 	private T info;
 	
@@ -32,4 +33,14 @@ public class LinnyNodo<T> {
 		this.info = info;
 	}
 
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+	
+	
+	
 }

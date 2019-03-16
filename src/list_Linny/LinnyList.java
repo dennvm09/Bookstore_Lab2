@@ -1,10 +1,8 @@
 package list_Linny;
 
-import java.awt.Dimension;
-import java.awt.List;
-import java.security.NoSuchProviderException;
 
-public class LinnyList<T>  extends List implements IList<T> {
+
+public class LinnyList<T> implements IList<T> {
 
 	private LinnyNodo<T> firstNodo;
 	private LinnyNodo<T> lastNodo;

@@ -5,7 +5,7 @@ public class HashTableLinny<T, M> implements IHashTable<T,M> {
 
 	public final static int SIZE = 3000;
 	public int busy;
-	public ItemLinny<T,M>[] table;
+	public ItemLinny<M,T>[] table;
 	public M[] keys;
 	
 	public HashTableLinny() {
@@ -16,11 +16,12 @@ public class HashTableLinny<T, M> implements IHashTable<T,M> {
 	}
 	
 	@Override
-	public void insert(T element, M key) {
+	public void insert(M key, T element) {
 		// TODO Auto-generated method stub
 		
 		int k = getSlot(key);
-		ItemLinny<T, M> newItem = new ItemLinny<T, M>(key, element);
+		
+		ItemLinny<M, T> newItem = new ItemLinny<M, T>(key, element);
 		int i = k;
 		int h = 0;
 		do {
@@ -39,7 +40,7 @@ public class HashTableLinny<T, M> implements IHashTable<T,M> {
 	}
 
 	@Override
-	public void remove(T element, M key) {
+	public void remove(M key, T element) {
 		// TODO Auto-generated method stub
 		if(!contains(key)) {
 			return;
@@ -58,11 +59,11 @@ public class HashTableLinny<T, M> implements IHashTable<T,M> {
 		for ( i = (i+h*h++)%SIZE; keys[i] != null; i = (i+h*h++)%SIZE) {
 			
 			M tmp = keys[i];
-			ItemLinny<T,M> temp = table[i];
+			ItemLinny<M, T> temp = table[i];
 			keys[i] = null;
 			table[i] = null;
 			busy--;
-			insert(element, tmp);
+			insert(tmp, element);
 		}
 	}
 
@@ -79,11 +80,11 @@ public class HashTableLinny<T, M> implements IHashTable<T,M> {
 	}
 
 	@Override
-	public ItemLinny<T, M> search(M key) {
+	public ItemLinny<M, T> search(M key) {
 		// TODO Auto-generated method stub
 		int i = getSlot(key);
 		int h = 1;
-		ItemLinny<T, M> actual = null;
+		ItemLinny<M, T> actual = null;
 		
 		while(keys[i] != null) {
 			if(keys[i] == key) {

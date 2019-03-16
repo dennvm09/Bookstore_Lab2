@@ -1,11 +1,12 @@
 package hash_Linny;
 
-public class ItemLinny<T,M> {
+public class ItemLinny<M, T> {
 
 	private M key;
 	private T value;
-	private ItemLinny<T,M> next;
-	private ItemLinny<T,M> previous;
+	private ItemLinny<M, T> next;
+	private ItemLinny<M, T> previous;
+	private int priority;
 	
 	public ItemLinny(M key, T value) {
 		this.key = key;
@@ -26,19 +27,25 @@ public class ItemLinny<T,M> {
 	public void setValue(T value) {
 		this.value = value;
 	}
-	public ItemLinny<T, M> getNext() {
+	public ItemLinny<M, T> getNext() {
 		return next;
 	}
-	public void setNext(ItemLinny<T, M> next) {
+	public void setNext(ItemLinny<M, T> next) {
 		this.next = next;
 	}
-	public ItemLinny<T, M> getPrevious() {
+	public ItemLinny<M, T> getPrevious() {
 		return previous;
 	}
-	public void setPrevious(ItemLinny<T, M> previous) {
+	public void setPrevious(ItemLinny<M,T> previous) {
 		this.previous = previous;
 	}
 	
-	
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
 	
 }
