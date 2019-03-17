@@ -112,29 +112,29 @@ public class HashTableLinny<M, T> implements IHashTable<M, T> {
 		return search(key) != null;
 	}
 
-	public static void main(String[] args) {
-		
-		HashTableLinny<Integer, Number> m = new HashTableLinny<>();
-		
-		m.insert(980, 76);
-		m.insert(987, 86);
-		m.insert(98, 99);
-		m.insert(980, 99);
-		m.insert(9, 8);
-		System.out.println(m.isEmpty());
-		System.out.println(m.contains(86));
-		System.out.println(m.search(86));
-		System.out.println(m.contains(89));
-		System.out.println(m.search(89));
-		System.out.println(m.contains(76));
-		System.out.println(m.search(86));
-		m.remove(980, 76);
-		System.out.println(m.contains(76));
-		System.out.println(m.contains(99));
-		System.out.println(m.contains(99));
-		System.out.println(m.size());
-		
-	
-	}
+//	public static void main(String[] args) {
+//		
+//		HashTableLinny<Integer, Number> m = new HashTableLinny<>();
+//		
+//		m.insert(980, 76);
+//		m.insert(987, 86);
+//		m.insert(98, 99);
+//		m.insert(980, 99);
+//		m.insert(9, 8);
+//		System.out.println(m.isEmpty());
+//		System.out.println(m.contains(86));
+//		System.out.println(m.search(86));
+//		System.out.println(m.contains(89));
+//		System.out.println(m.search(89));
+//		System.out.println(m.contains(76));
+//		System.out.println(m.search(86));
+//		m.remove(980, 76);
+//		System.out.println(m.contains(76));
+//		System.out.println(m.contains(99));
+//		System.out.println(m.contains(99));
+//		System.out.println(m.size());
+//		
+//	
+//	}
 
 }
