@@ -16,7 +16,7 @@ public class Customer {
 	private LinnyList<Integer> listISBN;
 	private LinnyList<Book> listFinal;
 	private int timeTotal;
-	
+	private double totalPay;
 	private String userId;
 	
 	public Customer(String userId) {
@@ -24,6 +24,7 @@ public class Customer {
 		listFinal = new LinnyList<>();
 		listISBN = new LinnyList<>();
 		shoppingCart = new LinnyStack<>();
+		totalPay = 0;
 		
 		
 	}
@@ -57,6 +58,15 @@ public class Customer {
 		this.userId = userId;
 	}
 	
+	
+	public double getTotalPay() {
+		return totalPay;
+	}
+
+	public void setTotalPay(double totalPay) {
+		this.totalPay = totalPay;
+	}
+
 	public LinnyList<Book> getListFinal() {
 		return listFinal;
 	}
