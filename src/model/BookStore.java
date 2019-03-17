@@ -3,6 +3,7 @@ import queue_Linny.LinnyQueue;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
+import heap_linny.HeapLinny;
 import list_Linny.*;
 
 public class BookStore {
@@ -51,56 +52,93 @@ public class BookStore {
 	public void setShelves(LinnyList<Shelves> shelves) {
 		this.shelves = shelves;
 	}
+	
+	
+	public LinnyQueue<Customer> queueFinal(){
+		
+		
+		
+		HeapLinny<Integer, Customer> aux = new HeapLinny<>(queueInitial.linnySize());
+		LinnyQueue<Customer> finalQ = new LinnyQueue<>();
+		
+		for (int i = 0; i < queueInitial.linnySize(); i++) {
+			
+			aux.insertMin(queueInitial.linnyPoll().getTimeTotal(), queueInitial.linnyPoll());
+			
+		}
+		for (int i = 0; i < aux.getSizeM(); i++) {
+			finalQ.linnyOffer(aux.max());
+			aux.removeMin();
+			
+		}
+		
+		return finalQ;
+	}
+	
+	
+	//realcionar con cojero
+	public void lastPest() {
+		
+		LinnyQueue<Customer> f = queueFinal();
+		for (int i = 0; i < f.linnySize(); i++) {
+			
+		}
+		
+	}
+	
+	
+	//Este metodo se encarga de organizar los libros que el cliente desea comprar y de sumarle el tiempo que se tarda en realizar las busquedas
+	//de los libros que desea comprar
 
 	public void organizedIsbn() {
 		
 		LinnyQueue<Customer> queue = queueInitial;
-//		Shelves g = new Shelves('A');
-//		Shelves f = new Shelves('B');
-//		
-//		shelves.linnyAdd(g);
-//		shelves.linnyAdd(f);
-//		
-//		
-//		Customer x = new Customer("84784");
-//		Customer a = new Customer("847994");
-//		Customer w = new Customer("847674");
-//		Customer k = new Customer("847564");
-//		Customer o = new Customer("84734");
-//		x.getListISBN().linnyAdd(19);
-//		a.getListISBN().linnyAdd(19);
-//		a.getListISBN().linnyAdd(15);
-//		w.getListISBN().linnyAdd(15);
-//		w.getListISBN().linnyAdd(19);
-//		w.getListISBN().linnyAdd(68);
-//		k.getListISBN().linnyAdd(19);
-//		o.getListISBN().linnyAdd(75);
-//		
-//		
-//		queue.linnyOffer(x);
-//		queue.linnyOffer(a);
-//		queue.linnyOffer(w);
-//		queue.linnyOffer(k);
-//		queue.linnyOffer(o);
-//		
-//		
-//		Book n = new Book (19, 2, 234.756, 'A');
-//		Book p = new Book (17, 1, 234.756, 'B');
-//		Book r = new Book (68, 4, 234.756, 'A');
-//		
-//		Book t = new Book (85, 2, 234.756, 'B');
-//		Book y = new Book (15, 1, 234.756, 'B');
-//		Book u = new Book (75, 4, 234.75, 'A');
-//		
-//		//System.out.println(shelves.linnyGet(0).getBooks().isEmpty());
-//		shelves.linnyGet(0).getBooks().insert(n.getIsbn(), n);
-//		
-//		shelves.linnyGet(1).getBooks().insert(p.getIsbn(), p);
-//		shelves.linnyGet(0).getBooks().insert(r.getIsbn(), r);
-//		
-//		shelves.linnyGet(1).getBooks().insert(t.getIsbn(), t);
-//		shelves.linnyGet(1).getBooks().insert(y.getIsbn(), y);
-//		shelves.linnyGet(0).getBooks().insert(u.getIsbn(), u);
+		Shelves g = new Shelves('A');
+		Shelves f = new Shelves('B');
+		
+		shelves.linnyAdd(g);
+		shelves.linnyAdd(f);
+		
+		
+		Customer x = new Customer("84784");
+		Customer a = new Customer("847994");
+		Customer w = new Customer("847674");
+		Customer k = new Customer("847564");
+		Customer o = new Customer("84734");
+		x.getListISBN().linnyAdd(19);
+		a.getListISBN().linnyAdd(19);
+		a.getListISBN().linnyAdd(15);
+		w.getListISBN().linnyAdd(15);
+		w.getListISBN().linnyAdd(19);
+		w.getListISBN().linnyAdd(68);
+		k.getListISBN().linnyAdd(19);
+		o.getListISBN().linnyAdd(75);
+		
+		
+		queue.linnyOffer(x);
+		queue.linnyOffer(a);
+		queue.linnyOffer(w);
+		queue.linnyOffer(k);
+		queue.linnyOffer(o);
+		
+		
+		Book n = new Book (19, 2, 234.756, 'A');
+		Book p = new Book (17, 1, 234.756, 'B');
+		Book r = new Book (68, 4, 234.756, 'A');
+		
+		Book t = new Book (85, 2, 234.756, 'B');
+		Book y = new Book (15, 1, 234.756, 'B');
+		Book u = new Book (75, 4, 234.75, 'A');
+		
+		//System.out.println(shelves.linnyGet(0).getBooks().isEmpty());
+		shelves.linnyGet(0).getBooks().insert(n.getIsbn(), n);
+		
+		shelves.linnyGet(1).getBooks().insert(p.getIsbn(), p);
+		shelves.linnyGet(0).getBooks().insert(r.getIsbn(), r);
+		
+		shelves.linnyGet(1).getBooks().insert(t.getIsbn(), t);
+		shelves.linnyGet(1).getBooks().insert(y.getIsbn(), y);
+		shelves.linnyGet(0).getBooks().insert(u.getIsbn(), u);
 		
 		
 		while(queue.isEmpty() == false) {
@@ -138,6 +176,20 @@ public class BookStore {
 		
 		BookStore s = new BookStore("Tienda");
 		s.organizedIsbn();
+		s.queueFinal();
+		Customer x = new Customer("84784");
+		Customer a = new Customer("847994");
+		Customer w = new Customer("847674");
+		Customer k = new Customer("847564");
+		Customer o = new Customer("84734");
+		s.queueInitial.linnyOffer(x);
+		s.queueInitial.linnyOffer(a);
+		s.queueInitial.linnyOffer(w);
+		s.queueInitial.linnyOffer(k);
+		s.queueInitial.linnyOffer(o);
+		
+		System.out.println(s.queueFinal().linnyPoll().getTimeTotal());
+		
 		
 		
 	}

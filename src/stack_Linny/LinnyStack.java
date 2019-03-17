@@ -8,6 +8,8 @@ public class LinnyStack<T> implements ILinny<T> {
 
 	public LinnyStack() {
 		size = 0;
+		nodoFirst = null;
+		nodoLast = null;
 	}
 
 	@Override

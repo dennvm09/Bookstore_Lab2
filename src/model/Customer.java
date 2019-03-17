@@ -94,11 +94,22 @@ public class Customer {
 		
 
 	}
+	
+	public void collectBooks() {
+		
+		for (int i = 0; i < listFinal.getTamanio(); i++) {
+			shoppingCart.linnyPush(listFinal.linnyGet(i));
+			System.out.println(listFinal.linnyGet(i).getShelves());
+		}
+		
+	}
 
 	public static void main(String[] args) {
 		Customer m = new Customer("1238875f");
 		
 		m.bestTour();
+		System.out.println("collection");
+		m.collectBooks();
 		System.out.println("hola");
 		System.out.println((int)'a');
 	}
