@@ -29,6 +29,8 @@ public class BookstoreController {
 	private TextArea txtSalida;
 	@FXML
 	private Button  btEjecutar;
+	@FXML
+	private Button btResult;
 	//////////////////////
 	@FXML
 	private Tab tabOtherCase;
@@ -60,31 +62,38 @@ public class BookstoreController {
 	private String resultado;
 	
 	
-	
-	
-	
 	public void init() {}
 	
+	
+	
+	///////////////////////////////////////////////////////////////
 	@FXML
 	public void sendBaseCase(ActionEvent e) {
 		
 		String casoBase = txtEntrada.getText();
 		String ruta = "src/files/baseCase.txt";
 		File archivo = new File(ruta);
-		
+
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
 			bw.write(casoBase);
 			bw.close();
 		} catch (IOException m) {
-			// TODO Auto-generated catch block
 			m.printStackTrace();
 		}
 		txtSalida.setText("Hola, ya funciona.");
+		baseCaseResult(e);
+	}
+	
+
+	//METODO PARA MOSTRAR EL RESULTADO DEL CASO BASE
+	public void baseCaseResult(ActionEvent e) {
+		Main.mostrarCasoBase();
 	}
 	
 	
 	
+	////////////////////////////////////////////////////////////////////
 	public void process1(ActionEvent e) {
 		
 		String idStand = JOptionPane.showInputDialog(null, "Ingrese el ID del stand: ");
@@ -156,5 +165,9 @@ public class BookstoreController {
 	}
 
 	 
+	
+	
+	
+	
 	
 }

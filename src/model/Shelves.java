@@ -4,7 +4,7 @@ import hash_Linny.HashTableLinny;;
 public class Shelves {
 
 	private char shelvesI;
-	private HashTableLinny<Book, Integer> books;
+	private HashTableLinny<Integer, Book> books;
 	
 	public Shelves(char shelvesI) {
 	  this.shelvesI = shelvesI;
@@ -18,10 +18,10 @@ public class Shelves {
 		this.shelvesI = shelvesI;
 	}
 
-	public HashTableLinny<Book, Integer> getBooks() {
+	public HashTableLinny<Integer, Book> getBooks() {
 		return books;
 	}
-	public void setBooks(HashTableLinny<Book, Integer> books) {
+	public void setBooks(HashTableLinny<Integer, Book> books) {
 		this.books = books;
 	}
 	

@@ -1,7 +1,7 @@
 package hash_Linny;
-import list_Linny.LinnyList;;
+import list_Linny.LinnyList;
 
-public class HashTableLinny<T, M> implements IHashTable<T,M> {
+public class HashTableLinny<M, T> implements IHashTable<M, T> {
 
 	public final static int SIZE = 3000;
 	public int busy;

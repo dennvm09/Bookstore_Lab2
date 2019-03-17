@@ -1,6 +1,6 @@
 package hash_Linny;
 
-public interface IHashTable<T,M> {
+public interface IHashTable<M, T> {
 
 	public void insert(M key, T element);
 	public void remove(M key, T element);
