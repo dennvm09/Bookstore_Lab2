@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="tabBookstore" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="671.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookstoreController">
+  <tabs>
+    <Tab fx:id="tabBaseCase" text="Caso base">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="24.0" layoutY="91.0" text="Entradas:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+                  <Label alignment="CENTER" layoutX="-6.0" layoutY="12.0" prefHeight="48.0" prefWidth="685.0" text="BOOKSTORE">
+                     <font>
+                        <Font name="Bodoni Bd BT Bold" size="39.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="txtEntrada" layoutX="24.0" layoutY="112.0" prefHeight="208.0" prefWidth="254.0" />
+                  <Label layoutX="294.0" layoutY="91.0" text="Salida:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="txtSalida" layoutX="294.0" layoutY="112.0" prefHeight="208.0" prefWidth="254.0" />
+                  <Button fx:id="btEjecutar" layoutX="235.0" layoutY="332.0" mnemonicParsing="false" onAction="#sendBaseCase" prefHeight="25.0" prefWidth="104.0" text="Ejecutar" />
+               </children>
+            </Pane>
+         </content></Tab>
+      <Tab fx:id="tabOtherCase" text="Caso general">
+         <content>
+            <Pane onDragDetected="#auxProcess1" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="-6.0" layoutY="12.0" prefHeight="48.0" prefWidth="685.0" text="BOOKSTORE">
+                     <font>
+                        <Font name="Bodoni Bd BT Bold" size="39.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btRegister" layoutX="486.0" layoutY="206.0" mnemonicParsing="false" onAction="#process2" prefHeight="25.0" prefWidth="104.0" text="Registrar" />
+                  <Label layoutX="204.0" layoutY="88.0" text="Estanterías: ">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtStands" layoutX="299.0" layoutY="88.0" prefHeight="25.0" prefWidth="83.0" />
+                  <Label layoutX="24.0" layoutY="88.0" text="Cajero(s):">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCashiers" layoutX="101.0" layoutY="88.0" prefHeight="25.0" prefWidth="83.0" />
+                  <Button fx:id="btSave" layoutX="418.0" layoutY="88.0" mnemonicParsing="false" onAction="#process1" text="Guardar" />
+                  <Label layoutX="25.0" layoutY="148.0" text="Stand: ">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblStand" alignment="CENTER" layoutX="83.0" layoutY="148.0" prefHeight="21.0" prefWidth="28.0" text="' '" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="137.0" layoutY="148.0" text="Libro:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblBook" alignment="CENTER" layoutX="188.0" layoutY="148.0" prefHeight="21.0" prefWidth="28.0" text="' '" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="208.0" text="ISBN:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtISBN" layoutX="75.0" layoutY="206.0" prefHeight="25.0" prefWidth="69.0" />
+                  <Label layoutX="165.0" layoutY="208.0" text="Precio:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPrice" layoutX="224.0" layoutY="206.0" prefHeight="25.0" prefWidth="69.0" />
+                  <Label layoutX="313.0" layoutY="208.0" text="Cantidad:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtQuantity" layoutX="390.0" layoutY="206.0" prefHeight="25.0" prefWidth="69.0" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
