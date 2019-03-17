@@ -81,8 +81,12 @@ public class BookStore {
 		
 		LinnyQueue<Customer> f = queueFinal();
 		for (int i = 0; i < f.linnySize(); i++) {
-			
+			Customer g = f.linnyPeek();
+			cashier.linnyGet(i).calculeCost(g, g.getShoppingCart());
+			g.setTotalPay(cashier.linnyGet(i).calculeCost(g, g.getShoppingCart()));
 		}
+		
+		
 		
 	}
 	
