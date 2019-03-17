@@ -7,7 +7,8 @@ public class Shelves {
 	private HashTableLinny<Book, Integer> books;
 	
 	public Shelves(char shelvesI) {
-	this.shelvesI = shelvesI;
+	  this.shelvesI = shelvesI;
+	  books = new HashTableLinny<>();
 	}
 
 	public char getShelvesI() {

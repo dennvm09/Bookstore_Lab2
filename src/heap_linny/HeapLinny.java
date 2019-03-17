@@ -55,8 +55,11 @@ public class HeapLinny< M,T> implements IHeap<M,T> {
 
 	@Override
 	public void minHeapify(int index) {
+		
 		while(hasLeftChild(index)) {
+			
 			int largest = leftChild(index);
+			
 			if(hasRigthChild(index) && heap[leftChild(index)].getPriority() < heap[rigthChild(index)].getPriority() ) {
 				largest = rigthChild(index);
 			}
@@ -72,7 +75,9 @@ public class HeapLinny< M,T> implements IHeap<M,T> {
 	@Override
 	public void maxHeapify(int index) {
 		while(hasLeftChild(index)) {
+			
 			int smallest = leftChild(index);
+			
 			if(hasRigthChild(index)&& heap[leftChild(index)].getPriority() > heap[rigthChild(index)].getPriority()) {
 				smallest = rigthChild(index);
 			}
@@ -93,7 +98,6 @@ public class HeapLinny< M,T> implements IHeap<M,T> {
 		
 		heap[sizeM] = add;
 		
-//		heap[sizeM] = add;
 		maxHeap();
 	}
 
@@ -117,8 +121,8 @@ public class HeapLinny< M,T> implements IHeap<M,T> {
 		heap[FRONT] = heap[sizeM];
 		heap[sizeM] = null;
 		setSizeM(sizeM-1);
-		minHeapify(FRONT);
-		
+		//minHeapify(FRONT);
+		maxHeapify(FRONT);
 		return remove.getValue();
 	}
 
@@ -170,7 +174,8 @@ public class HeapLinny< M,T> implements IHeap<M,T> {
 		heap[FRONT] = heap[sizeM];
 		heap[sizeM] = null;
 		setSizeM(sizeM-1);
-		maxHeapify(FRONT);
+		//maxHeapify(FRONT);
+		minHeapify(FRONT);
 		return remove.getValue();
 	}
 	

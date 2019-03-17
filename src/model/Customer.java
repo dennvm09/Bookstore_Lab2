@@ -1,6 +1,7 @@
 package model;
 
 import stack_Linny.LinnyStack;
+import heap_linny.*;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,12 +15,16 @@ public class Customer {
 	private LinnyStack<Book> shoppingCart;
 	private LinnyList<Integer> listISBN;
 	private LinnyList<Book> listFinal;
-	private long timeTotal;
+	private int timeTotal;
 	
 	private String userId;
 	
 	public Customer(String userId) {
 		this.userId = userId;
+		listFinal = new LinnyList<>();
+		listISBN = new LinnyList<>();
+		shoppingCart = new LinnyStack<>();
+		
 		
 	}
 
@@ -37,11 +42,11 @@ public class Customer {
 		this.listISBN = listISBN;
 	}
 	
-	public long getTimeTotal() {
+	public int getTimeTotal() {
 		return timeTotal;
 	}
 
-	public void setTimeTotal(long timeTotal) {
+	public void setTimeTotal(int timeTotal) {
 		this.timeTotal = timeTotal;
 	}
 
@@ -60,54 +65,42 @@ public class Customer {
 		this.listFinal = listFinal;
 	}
 
-	public void meterEnElceto () {
+	public void bestTour () {
 		
-//		listFinal.linnyAdd(new Book (1985, 4, 234.756, 'A'));
-//		listFinal.linnyAdd(new Book (195, 4, 24.756, 'B'));
-//		listFinal.linnyAdd(new Book (1986, 4, 234.756, 'A'));
-//		listFinal.linnyAdd(new Book (185, 3, 234.756, 'C'));
-//		listFinal.linnyAdd(new Book (85, 4, 234.756, 'B'));
+		listFinal.linnyAdd(new Book (1985, 2, 234.756, 'A'));
+		listFinal.linnyAdd(new Book (195, 4, 24.756, 'B'));
+		listFinal.linnyAdd(new Book (1986, 4, 234.756, 'B'));
+		listFinal.linnyAdd(new Book (185, 3, 234.756, 'C'));
+		listFinal.linnyAdd(new Book (85, 4, 234.756, 'A'));
+		System.out.println(listFinal.getTamanio());
 		
-		LinkedList<Book> listAux = new LinkedList<>();
-		listAux.add(new Book (1985, 4, 234.756, 'A'));
-		listAux.add(new Book (195, 4, 24.756, 'B'));
-		listAux.add(new Book (1986, 4, 234.756, 'A'));
-		listAux.add(new Book (185, 3, 234.756, 'C'));
-		listAux.add(new Book (85, 4, 234.756, 'B'));
+		HeapLinny<Integer, Book> aux = new HeapLinny<>(listFinal.getTamanio());
 		
-//		for (int i = 0; i < listFinal.size(); i++) {
-//			if(listFinal.linnyGet(i) != null) {
-//				listAux.add(listFinal.linnyGet(i));
-//			}
-//		}
+		for (int i = 0; i < listFinal.getTamanio(); i++) {
+			aux.insertMin((int) listFinal.linnyGet(i).getShelves(), listFinal.linnyGet(i));
 			
-			
-			
-			
-			
-			Collections.sort(listAux ,new Comparator<Book>() {
-				@Override
-				public int compare(Book o1, Book o2) {
-					return o1.getShelves() - o2.getShelves();
-				}
+		}
 				
-			});
-			
-			for (int i = 0; i < listAux.size(); i++) {
-				if(listAux.get(i) != null) {
-					System.out.println(listAux.get(i).getShelves());
-					System.out.println(listAux.get(i).getIsbn());
-				}
-				
-			}
+		LinnyList<Book> auxL = new LinnyList<>();
 		
+		for (int i = 0; i < listFinal.getTamanio(); i++) {
+			auxL.linnyAdd(aux.max());
+			aux.removeMax();
+			System.out.println(auxL.linnyGet(i).getShelves());
+		}
 		
+		listFinal = auxL;
+		setTimeTotal(timeTotal+listFinal.getTamanio());
 		
+
 	}
 
 	public static void main(String[] args) {
 		Customer m = new Customer("1238875f");
-		m.meterEnElceto();
+		
+		m.bestTour();
+		System.out.println("hola");
+		System.out.println((int)'a');
 	}
 	
 	

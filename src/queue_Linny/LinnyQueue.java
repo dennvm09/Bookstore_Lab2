@@ -8,6 +8,8 @@ public class LinnyQueue<T> implements IQueue {
 
 	public LinnyQueue() {
 		counter = 0;
+		firstNode = null;
+		lastNode = null;
 
 	}
 
@@ -20,12 +22,14 @@ public class LinnyQueue<T> implements IQueue {
 			lastNode = newLinny;
 			newLinny.setNext(newLinny);
 			newLinny.setPrevious(newLinny);
+			counter++;
 			
 		} else {
 		
 			lastNode.setNext(newLinny);
 			newLinny.setPrevious(null);
-			lastNode = newLinny;		
+			lastNode = newLinny;	
+			counter++;
 			
 
 		}
@@ -43,7 +47,7 @@ public class LinnyQueue<T> implements IQueue {
 	}
 
 	@Override
-	public Object linnyPoll() {
+	public T linnyPoll() {
 		// TODO Auto-generated method stub
 		T pollInfo = null;
 		if (firstNode != null) {

@@ -2,7 +2,7 @@ package model;
 
 import java.util.Comparator;
 
-public class Book {
+public class Book implements Comparable<Book>{
 	
 	private int isbn;
 	private int quantity;
@@ -45,6 +45,22 @@ public class Book {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+
+	@Override
+	public int compareTo(Book o) {
+		
+		if(getShelves() - o.getShelves() > 0) {
+			return 1 ;
+		}
+		else if(getShelves() - o.getShelves() < 0) {
+			return -1;
+		}
+		else {
+			return 0;
+		}
+	
 	}
 	
 	
